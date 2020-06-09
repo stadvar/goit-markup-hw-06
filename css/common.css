@@ -367,7 +367,7 @@ img {
   display: flex;
   flex-direction: column;
 }
-.form__field:not(:last-child) {
+.form__field:not(:last-of-type) {
   margin-bottom: 28px;
 }
 .form__field label {
@@ -392,6 +392,7 @@ img {
   resize: vertical;
   max-height: 150px;
 }
+
 .form__policy {
   display: flex;
   align-items: center;
