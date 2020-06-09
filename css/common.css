@@ -374,9 +374,7 @@ img {
   margin-bottom: 5px;
   font-size: 12px;
   line-height: 1.16;
-
   letter-spacing: 0.01em;
-
   color: var(--head-collor);
 }
 .form__field input,
