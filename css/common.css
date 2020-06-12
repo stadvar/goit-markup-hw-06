@@ -18,7 +18,7 @@ a:active,
 a:focus,
 textarea:active,
 textarea:focus {
-  /* outline: none; */
+  outline: none;
 }
 
 body {
@@ -70,10 +70,7 @@ img {
   background-color: #f5f4fa;
   color: var(--head-collor);
 }
-.button:hover .fsign__icon,
-.button:focus .fsign__icon {
-  fill: var(--head-collor);
-}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -271,12 +268,49 @@ img {
 .fsign__button {
   display: inline-flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
-.fsign__icon {
+.fsign__button::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/flyW.svg');
+  margin-left: 10px;
+  transform: translate(0px, 0px);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fsign__button::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/flyB.svg');
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-80px, 175%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fsign__button:hover::after,
+.fsign__button:focus::after {
+  transform: translate(50px, -50px);
+}
+.fsign__button:hover::before,
+.fsign__button:focus::before {
+  transform: translate(-32px, -50%);
+}
+/* .fsign__button:hover .fsign__icon,
+.fsign__button:focus .fsign__icon {
+  fill: var(--head-collor);
+} */
+/* .fsign__icon {
   margin-left: 10px;
   fill: white;
-  transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  transition:  fill 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+} */
 .footer__copyright {
   margin: 0;
   font-size: 12px;
@@ -284,133 +318,4 @@ img {
   text-align: center;
   color: var(--white-color);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Стили модального окна */
-.form__backdrop {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  opacity: 1;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.form__backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.form__backdrop.is-hidden .form__modal {
-  transform: translate(-50%, -25%) scale(0.8);
-}
-.form__modal {
-  min-width: 530px;
-  min-height: 580px;
-  background-color: #fff;
-  /* outline: 1px solid red; */
-  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 40px;
-}
-.modal__button {
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-  background: #ffffff;
-  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
-}
-.modal__button:hover::before,
-.modal__button:focus::before {
-  transform: translate(-50%, -50%) rotate(-45deg) scale(1.2);
-}
-.modal__button:hover::after,
-.modal__button:focus::after {
-  transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
-}
-.modal__button::before,
-.modal__button::after {
-  content: '';
-  display: block;
-  width: 15px;
-  height: 1px;
-  background-color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal__button::after {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.modal__button::before {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.form__title {
-  margin: 0 0 30px;
-  color: var(--head-collor);
-  font-size: 20px;
-  line-height: 1.15;
-  text-align: center;
-}
-.form__field {
-  display: flex;
-  flex-direction: column;
-}
-.form__field:not(:last-of-type) {
-  margin-bottom: 28px;
-}
-.form__field label {
-  margin-bottom: 5px;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
-  color: var(--head-collor);
-}
-.form__field input,
-.form__field textarea {
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
-
-  color: var(--head-collor);
-}
-.form__field textarea {
-  resize: vertical;
-  max-height: 150px;
-}
-
-.form__policy {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.form__policy input {
-  margin-right: 8px;
-}
-.form__policy label {
-  letter-spacing: 0.03em;
-  color: var(--main-color);
-  font-size: 14px;
-  line-height: 1.7;
-}
-.form__policy a {
-  color: var(--active-color);
-}
-.form__button {
-  display: flex;
-  justify-content: center;
 }

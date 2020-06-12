@@ -349,28 +349,43 @@
       <div class="form__modal">
         <form action="">
           <h2 class="form__title">Оставьте свои данные, мы вам перезвоним</h2>
-          <div class="form__field">
-            <label for="name">Имя</label>
-            <input type="text" name="name" id="name" autofocus />
-          </div>
-          <div class="form__field">
-            <label for="tel">Телефон</label>
-            <input type="tel" name="tel" id="tel" />
-          </div>
-          <div class="form__field">
-            <label for="email">Почта</label>
-            <input type="email" name="email" id="email" />
-          </div>
-          <div class="form__field">
-            <label for="coments">Коментарий</label>
-            <textarea name="coments" id="coments"></textarea>
-          </div>
-          <div class="form__policy">
-            <input type="checkbox" name="policy" id="policy" />
-            <label for="policy">Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></label>
-          </div>
+          <label class="form__field">
+            <input class="filed__input" type="text" name="name" placeholder=" " />
+            <span class="field__title">Имя</span>
+            <svg class="field__icon" width="18" height="18">
+              <use href="./images/sprite.svg#field-name"></use>
+            </svg>
+          </label>
+
+          <label class="form__field">
+            <input class="filed__input" type="tel" name="tel" placeholder=" " />
+            <span class="field__title">Телефон</span>
+            <svg class="field__icon" width="18" height="18">
+              <use href="./images/sprite.svg#field-phone"></use>
+            </svg>
+          </label>
+
+          <label class="form__field">
+            <input class="filed__input" type="email" name="email" placeholder=" " />
+            <span class="field__title">Почта</span>
+            <svg class="field__icon" width="18" height="18">
+              <use href="./images/sprite.svg#field-mail"></use>
+            </svg>
+          </label>
+
+          <label class="form__field">
+            <textarea class="filed__textarea" name="coments" placeholder=" "></textarea>
+            <span class="field__title">Коментарий</span>
+          </label>
+
+          <label class="form__policy">
+            <input type="checkbox" name="policy" id="checkbox" />
+            <span class="policy__checkbox"></span>
+            <span class="policy__title">Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></span>
+          </label>
+
           <div class="form__button">
-            <button class="button" type="submit">Отправить</button>
+            <button class="button" type="submit" id="send" disabled>Отправить</button>
           </div>
         </form>
         <button class="modal__button"></button>
@@ -430,9 +445,9 @@
             <input class="fsign__input" type="email" name="elmail" id="elmail" value="" placeholder="input your email" />
             <button type="submit" class="fsign__button button">
               Подписаться
-              <svg class="fsign__icon" width="24" height="24">
+              <!-- <svg class="fsign__icon" width="24" height="24">
                 <use href="./images/sprite.svg#plane"></use>
-              </svg>
+              </svg> -->
             </button>
           </form>
         </div>

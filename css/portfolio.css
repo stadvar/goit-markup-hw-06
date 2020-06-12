@@ -128,11 +128,9 @@
   /* outline: 1px solid red; */
   opacity: 0;
 }
-
 .pcards__text::-webkit-scrollbar {
   width: 6px;
 }
-
 .pcards__text::-webkit-scrollbar-thumb {
   background-color: var(--white-color);
   border-radius: 3px;
